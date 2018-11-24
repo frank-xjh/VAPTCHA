@@ -90,14 +90,14 @@ class VAPTCHA_Plugin implements Typecho_Plugin_Interface{
         $vaptcha_js = "
             <script src=\"https://cdn.vaptcha.com/v2.js\"></script>
             <script>
-                document.getElementById(".$options->button_id.").setAttribute(\"disabled\", true);
+                document.getElementById(\"".$options->button_id."\").setAttribute(\"disabled\", true);
                 vaptcha({
                     vid: '".$options->vid."', // 验证单元id
                     type: 'click', // 显示类型 点击式
-                    container: '.vaptcha-container', // 按钮容器，可为Element 或者 selector
+                    container: '.vaptcha-container' // 按钮容器，可为Element 或者 selector
                 }).then(function (vaptchaObj) {
                     vaptchaObj.listen('pass', function() {
-                        document.getElementById(".$options->button_id.").removeAttribute(\"disabled\");
+                        document.getElementById(\"".$options->button_id."\").removeAttribute(\"disabled\");
                     })
                     vaptchaObj.render()
                 })
